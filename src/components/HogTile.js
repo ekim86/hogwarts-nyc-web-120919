@@ -24,7 +24,7 @@ class HogTile extends React.Component {
       <div onClick={this.handlePigTile} className="pigTile" >
         <h3>{name}</h3>
 
-        {(this.state.clickedOn) ? `specialty: ${specialty} greased: ${greased} weight: ${weight} highest medal achieved: ${this.props.hogInfoz['highest medal achieved']}` : null}<br />
+        {(this.state.clickedOn) ? <ul><li>specialty: {specialty}</li> <li>greased: {greased}</li> <li>weight: {weight}</li> <li>highest medal achieved: {this.props.hogInfoz['highest medal achieved']}</li></ul> : null}<br />
         {<img src={process.env.PUBLIC_URL + `/hog-imgs/${name.split(' ').join('_')}.jpg`} alt={name} />}
       </div>
     );
