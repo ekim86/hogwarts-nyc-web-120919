@@ -1,21 +1,3 @@
-// import React from 'react';
-
-// class HogTile extends React.Component {
-  
-//   render(props){
-// console.log(this.props)
-//     return (
-//       <div className="ui eight wide column">
-//         <div>
-   
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-  
-//   export default HogTile;
-
 import React from 'react';
 
 class HogTile extends React.Component {
@@ -26,25 +8,27 @@ class HogTile extends React.Component {
 
   handlePigTile = () => {
 
-    let currentState = this.state.clickedOn
+    const currentState = this.state.clickedOn
     this.setState({
       clickedOn: !currentState
     })
 
   }
-  
-  render(){
+
+  render() {
     console.log(this.state.clickedOn, 'CLICK')
-    const {hogInfoz: {name, specialty, greased, weight}} = this.props;
+
+    const { hogInfoz: { name, specialty, greased, weight } } = this.props;
 
     return (
       <div onClick={this.handlePigTile} className="pigTile" >
         <h3>{name}</h3>
-        {(this.state.clickedOn) ? `${specialty} ${greased} ${weight}` : null}<br/>
+
+        {(this.state.clickedOn) ? `specialty: ${specialty} greased: ${greased} weight: ${weight} highest medal achieved: ${this.props.hogInfoz['highest medal achieved']}` : null}<br />
         {<img src={process.env.PUBLIC_URL + `/hog-imgs/${name.split(' ').join('_')}.jpg`} alt={name} />}
       </div>
     );
   }
 }
-  
-  export default HogTile;
+
+export default HogTile;
